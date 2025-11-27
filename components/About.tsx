@@ -24,16 +24,16 @@ const About: React.FC = () => {
         <div className="md:w-1/2 mb-12 md:mb-0 pr-0 md:pr-12 sticky top-24">
           <h2 className="text-sm font-mono text-gold-500 uppercase tracking-widest mb-4">What We Do</h2>
           <h3 className="text-4xl md:text-5xl font-serif text-white mb-8 leading-tight">
-            写真と技術で、<br />
-            会社の「伝える力」を<br />
-            強くする。
+            技術は、<br />
+            想いを運ぶ<br />
+            器でしかない。
           </h3>
           <div className="h-1 w-20 bg-gradient-to-r from-gold-500 to-blue-500 mb-8"></div>
           <p className="text-gray-400 text-lg leading-relaxed font-light mb-6">
-            Anystyleは、写真・動画撮影と、デジタル技術を組み合わせたサービスを提供しています。
+            どれほどAIが進化しても、伝えるべき「核」がなければ人の心は動きません。
           </p>
           <p className="text-gray-400 text-lg leading-relaxed font-light">
-            「良い写真を撮ったけど、ホームページに載せただけで終わっている」「会社の魅力をもっと伝えたいけど、どうすればいいかわからない」。そんな課題を解決するために、撮影からWebサイト、AI活用まで一貫して対応できる体制を整えました。
+            私たちは写真家としての眼差しでその「核」を捉え、デジタル技術で社会へ、そして次代へと届けます。流行の技術を使うことではなく、あなたの「真価」を正しく伝えることが私たちの使命です。
           </p>
         </div>
         <div className="md:w-1/2 space-y-6">

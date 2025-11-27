@@ -63,8 +63,8 @@ const AISection: React.FC = () => {
             <span className="uppercase tracking-widest text-xs font-mono">Digital Services</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-serif text-white mb-6">
-            「伝え続ける仕組み」を、<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">テクノロジーでつくる。</span>
+            プロの品質を、<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">テクノロジーで拡張する。</span>
           </h2>
           <p className="max-w-2xl mx-auto text-gray-400">
             人手が足りない、でも情報発信は続けたい。そんな中小企業・個人事業主の課題を、デジタル技術で解決します。撮影した写真・動画を最大限に活用できる仕組みをご提案。

@@ -56,8 +56,8 @@ const PhotographySection: React.FC = () => {
               <span className="uppercase tracking-widest text-sm font-mono">Photography</span>
             </div>
             <h2 className="text-4xl md:text-6xl font-serif text-white leading-tight">
-              あなたと御社の魅力を、<br />
-              <span className="italic text-gray-500">写真で伝える。</span>
+              本物だけが持つ力を、<br />
+              <span className="italic text-gray-500">写真で捉える。</span>
             </h2>
           </div>
           <div className="md:w-1/3 mt-8 md:mt-0">
