@@ -20,31 +20,53 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-6 text-center">
-        <h2 className="text-gold-400 font-mono text-sm md:text-base tracking-[0.3em] uppercase mb-6 animate-fade-in-up" style={{animationDelay: '0.1s'}}>
-          Art & Intelligence
+        <h2 className="text-gold-400 font-mono text-sm md:text-base tracking-[0.3em] uppercase mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+          Photography × Digital Technology
         </h2>
-        <h1 className="text-5xl md:text-7xl lg:text-9xl font-serif font-medium text-white leading-tight mb-8 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
-          その真価を、 <br />
-          <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">永遠に。</span>
+        <h1 className="text-5xl md:text-7xl lg:text-9xl font-serif font-medium text-white leading-tight mb-8 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+          あなたの会社を <br />
+          <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">24時間働く存在に。</span>
         </h1>
-        <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl font-light leading-relaxed mb-12 animate-fade-in-up" style={{animationDelay: '0.5s'}}>
-          私たちは「<span className="text-gold-400">写真</span>」による真の姿の描写と、<br className="hidden md:block" />
-          「<span className="text-blue-400">AI技術</span>」による知性の継承を繋ぐ架け橋となります。
+        <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl font-light leading-relaxed mb-12 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+          NFC名刺、AIアバター、対話型ホームページ。<br className="hidden md:block" />
+          写真・動画撮影と最新テクノロジーで、<br className="hidden md:block" />
+          御社の魅力を「伝え続ける仕組み」をつくります。
         </p>
-        
-        <div className="flex flex-col md:flex-row justify-center gap-6 animate-fade-in-up" style={{animationDelay: '0.7s'}}>
-           <button 
-             onClick={() => document.getElementById(SectionId.PHOTO)?.scrollIntoView({behavior: 'smooth'})}
-             className="px-8 py-4 border border-gold-500/30 hover:border-gold-500 text-gold-100 hover:bg-gold-500/10 transition-all duration-300 font-sans uppercase tracking-widest text-sm"
-           >
-             写真事業を見る
-           </button>
-           <button 
-             onClick={() => document.getElementById(SectionId.AI)?.scrollIntoView({behavior: 'smooth'})}
-             className="px-8 py-4 bg-white text-black hover:bg-gray-200 transition-all duration-300 font-sans uppercase tracking-widest text-sm font-bold"
-           >
-             AI事業を見る
-           </button>
+
+        <div className="flex flex-col md:flex-row justify-center gap-6 animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
+          <button
+            onClick={() => document.getElementById(SectionId.AI)?.scrollIntoView({ behavior: 'smooth' })}
+            className="px-8 py-4 border border-gold-500/30 hover:border-gold-500 text-gold-100 hover:bg-gold-500/10 transition-all duration-300 font-sans uppercase tracking-widest text-sm"
+          >
+            サービスを見る
+          </button>
+          <button
+            onClick={() => document.getElementById(SectionId.CONTACT)?.scrollIntoView({ behavior: 'smooth' })}
+            className="px-8 py-4 bg-white text-black hover:bg-gray-200 transition-all duration-300 font-sans uppercase tracking-widest text-sm font-bold"
+          >
+            無料相談する
+          </button>
+        </div>
+
+        {/* Trust Indicators */}
+        <div className="mt-16 pt-8 border-t border-white/5 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
+          <p className="text-center text-gray-500 text-xs uppercase tracking-widest mb-6">実績</p>
+          <div className="flex flex-wrap justify-center gap-8 text-gray-400 text-sm">
+            <div className="text-center">
+              <span className="block text-2xl font-serif text-white mb-1">30+</span>
+              <span className="text-xs text-gray-500">年の撮影経験</span>
+            </div>
+            <div className="w-px h-12 bg-white/10 hidden sm:block"></div>
+            <div className="text-center">
+              <span className="block text-2xl font-serif text-white mb-1">映画・TV</span>
+              <span className="text-xs text-gray-500">ポスター撮影実績</span>
+            </div>
+            <div className="w-px h-12 bg-white/10 hidden sm:block"></div>
+            <div className="text-center">
+              <span className="block text-2xl font-serif text-white mb-1">AI×写真</span>
+              <span className="text-xs text-gray-500">ワンストップ提供</span>
+            </div>
+          </div>
         </div>
       </div>
 
