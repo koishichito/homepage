@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { SectionId } from '../types';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -16,6 +17,18 @@ const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDark]);
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+  };
 
   const handleNavigation = (id: string) => {
     setMobileMenuOpen(false);
@@ -58,25 +71,44 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-12">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleNavigation(item.id)}
-              className="text-sm uppercase tracking-widest text-slate-300 hover:text-gold-400 transition-colors duration-300 font-sans font-light"
-            >
-              {item.label}
-            </button>
-          ))}
+        <div className="hidden md:flex items-center space-x-8">
+          <div className="flex items-center space-x-8">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleNavigation(item.id)}
+                className="text-sm uppercase tracking-widest text-slate-300 hover:text-gold-400 transition-colors duration-300 font-sans font-light"
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full hover:bg-white/10 transition-colors text-slate-300 hover:text-gold-400"
+            aria-label="Toggle theme"
+          >
+            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
         </div>
 
         {/* Mobile Nav Toggle */}
-        <button
-          className="md:hidden text-white hover:text-gold-400 transition-colors"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        <div className="flex items-center space-x-4 md:hidden">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full hover:bg-white/10 transition-colors text-slate-300 hover:text-gold-400"
+          >
+            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          <button
+            className="text-white hover:text-gold-400 transition-colors"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
