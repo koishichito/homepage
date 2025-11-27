@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { SectionId } from '../types';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,11 +17,21 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollTo = (id: string) => {
+  const handleNavigation = (id: string) => {
     setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+
+    if (id === SectionId.PORTFOLIO) {
+      navigate('/portfolio');
+      return;
+    }
+
+    if (location.pathname !== '/') {
+      navigate(`/#${id}`);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -37,7 +50,7 @@ const Navbar: React.FC = () => {
         }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <div className="flex items-center space-x-2 cursor-pointer" onClick={() => scrollTo(SectionId.HERO)}>
+        <div className="flex items-center space-x-2 cursor-pointer" onClick={() => handleNavigation(SectionId.HERO)}>
           <div className="w-8 h-8 bg-gradient-to-tr from-gold-400 to-white rounded-full opacity-80"></div>
           <span className="text-2xl font-serif font-bold tracking-widest text-white">
             ANYSTYLE
@@ -49,7 +62,7 @@ const Navbar: React.FC = () => {
           {navItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => scrollTo(item.id)}
+              onClick={() => handleNavigation(item.id)}
               className="text-sm uppercase tracking-widest text-slate-300 hover:text-gold-400 transition-colors duration-300 font-sans font-light"
             >
               {item.label}
@@ -72,7 +85,7 @@ const Navbar: React.FC = () => {
           {navItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => scrollTo(item.id)}
+              onClick={() => handleNavigation(item.id)}
               className="text-left text-lg uppercase tracking-widest text-slate-300 hover:text-gold-400 font-sans"
             >
               {item.label}

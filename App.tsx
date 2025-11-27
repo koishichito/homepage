@@ -1,40 +1,16 @@
-import React, { useEffect } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import PhotographySection from './components/PhotographySection';
-import AISection from './components/AISection';
-import Footer from './components/Footer';
-
-import PhotographerProfile from './components/PhotographerProfile';
-import Portfolio from './components/Portfolio';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import PortfolioPage from './pages/PortfolioPage';
 
 const App: React.FC = () => {
-
-  useEffect(() => {
-    // Simple smooth scrolling fix for hash links on mount
-    if (window.location.hash) {
-      const element = document.querySelector(window.location.hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }, []);
-
   return (
-    <div className="bg-slate-950 min-h-screen text-white selection:bg-gold-500 selection:text-black overflow-x-hidden">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <PhotographerProfile />
-        <Portfolio />
-        <PhotographySection />
-        <div className="h-24 bg-gradient-to-b from-[#0c0c0c] to-slate-950"></div>
-        <AISection />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
+      </Routes>
+    </Router>
   );
 };
 
